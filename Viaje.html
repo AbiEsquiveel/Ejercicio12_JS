@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Coste de Viaje</title>
+</head>
+<body>
+    <h2>Calculadora de Coste de Viaje</h2>
+    <label for="alojamiento">Gastos de alojamiento (€):</label>
+    <input type="number" id="alojamiento" placeholder="200" step="any"><br><br>
+
+    <label for="alimentacion">Gastos de alimentación (€):</label>
+    <input type="number" id="alimentacion" placeholder="150" step="any"><br><br>
+
+    <label for="entretenimiento">Gastos de entretenimiento (€):</label>
+    <input type="number" id="entretenimiento" placeholder="100" step="any"><br><br>
+
+    <button onclick="calcularCoste()">Calcular Coste Total</button>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcularCoste() {
+
+            let alojamiento = document.getElementById('alojamiento').value;
+            let alimentacion = document.getElementById('alimentacion').value;
+            let entretenimiento = document.getElementById('entretenimiento').value;
+
+
+            alojamiento = alojamiento ? parseFloat(alojamiento) : 0;
+            alimentacion = alimentacion ? parseFloat(alimentacion) : 0;
+            entretenimiento = entretenimiento ? parseFloat(entretenimiento) : 0;
+
+
+            let costeTotal = alojamiento + alimentacion + entretenimiento;
+
+
+            document.getElementById('resultado').textContent = "Coste total del viaje: " + costeTotal + " €";
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Edad de Perro a Años Humanos</title>
+</head>
+<body>
+    <h2>Conversor de Edad de Perro a Años Humanos</h2>
+
+    <label for="edadPerro">Introduce la edad de tu perro (en años):</label>
+    <input type="number" id="edadPerro" placeholder="5" min="0" step="1"><br><br>
+
+    <button onclick="calcularEdadHumana()">Calcular Edad en Años Humanos</button>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcularEdadHumana() {
+            let edadPerro = document.getElementById('edadPerro').value;
+
+            if (edadPerro === '' || edadPerro < 0) {
+                document.getElementById('resultado').textContent = 'Por favor, introduce una edad válida.';
+                return;
+            }
+
+            let edadHumana = parseInt(edadPerro) * 7;
+            
+            document.getElementById('resultado').textContent = "La edad en años humanos es: " + edadHumana;
+        }
+    </script>
+</body>
+</html>

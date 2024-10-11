@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+</head>
+<body>
+    <h2>Calculadora de Índice de Masa Corporal (IMC)</h2>
+
+    <label for="peso">Introduce tu peso (en kg):</label>
+    <input type="number" id="peso" placeholder="70" step="any" min="0"><br><br>
+
+    <label for="altura">Introduce tu altura (en metros):</label>
+    <input type="number" id="altura" placeholder="1.75" step="any" min="0"><br><br>
+
+    <button onclick="calcularIMC()">Calcular IMC</button>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcularIMC() {
+            let peso = parseFloat(document.getElementById('peso').value);
+            let altura = parseFloat(document.getElementById('altura').value);
+
+            if (peso <= 0 || altura <= 0) {
+                document.getElementById('resultado').textContent = 'Por favor, introduce valores válidos.';
+                return;
+            }
+
+            let imc = peso / (altura * altura);
+
+            let clasificacion = '';
+            if (imc < 18.5) {
+                clasificacion = 'Bajo peso';
+            } else if (imc >= 18.5 && imc <= 24.9) {
+                clasificacion = 'Peso normal';
+            } else if (imc >= 25 && imc <= 29.9) {
+                clasificacion = 'Sobrepeso';
+            } else {
+                clasificacion = 'Obesidad';
+            }
+
+            document.getElementById('resultado').textContent = `IMC: ${imc.toFixed(2)}, Clasificación: ${clasificacion}`;
+
+        }
+    </script>
+</body>
+</html>
